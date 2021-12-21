@@ -35,9 +35,9 @@ def remove_single_item(r):
     return todo_list
 
 
-def mark_as_complete(c):
-    todo_list.remove(c)
-    return todo_list
+#def mark_as_complete(c):
+#    todo_list.remove(c)
+#    return todo_list
 
 
 def mark_as_incomplete(inc):
@@ -74,7 +74,7 @@ while user_selected_option != '7':
 
     elif user_selected_option == '4':
         mark_item_as_complete = input(f'Which item you want to mark as complete? \n {todo_list} \n>')
-        mark_as_complete(mark_item_as_complete)
+        remove_single_item(mark_item_as_complete)
         print(f'"{mark_item_as_complete}" is marked as complete')
         print(f' The updated todo list is: \n {todo_list}')
 
