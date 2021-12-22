@@ -15,31 +15,36 @@ def populate_list():
     total_items = int(input('Please enter how many items you want to list?\n'))
     print('Please enter the items')
     for i in range(0, total_items):
-        list_item = input()
-        todo_list.append(list_item)
+        items = input()
+        list_items = {
+            'item name': items,
+            'status': 'incomplete'
+        }
+        todo_list.append(list_items)
     return todo_list
 
 
-def add_single_item(n, i):
-    todo_list.insert(i, n)
+def add_single_item(itm, indx):
+    todo_list.insert(indx, itm)
     return todo_list
 
 
-def update_single_item(ci, ui):
-    todo_list[ci] = ui
+def update_single_item(crrnt_indx, updtd_indx):
+    todo_list[crrnt_indx] = updtd_indx
     return todo_list
 
 
-def remove_single_item(r):
-    todo_list.remove(r)
+def remove_single_item(rmv_item):
+    todo_list.remove(rmv_item)
     return todo_list
 
 
-#def mark_as_complete(c):
+# This function will delete the item from the todo list
+# def mark_as_complete(c):
 #    todo_list.remove(c)
 #    return todo_list
 
-
+# This function will add the item again in the todo list
 def mark_as_incomplete(inc):
     todo_list.append(inc)
     return todo_list
@@ -57,12 +62,14 @@ while user_selected_option != '7':
 
     if user_selected_option == '1':
         item = input('Please enter an item to add to the list: ')
-        index = int(input(f'\n Please enter the "index" where you want to add the item in this list \n {todo_list} \n> '))
+        index = int(
+            input(f'\n Please enter the "index" where you want to add the item in this list \n {todo_list} \n> '))
         add_single_item(item, index)
         print(f'The updated todo list is as: {todo_list}')
 
     elif user_selected_option == '2':
-        current_index = int(input(f'Please select the index of item you want to update from the list \n {todo_list} \n>'))
+        current_index = int(
+            input(f'Please select the index of item you want to update from the list \n {todo_list} \n>'))
         updated_item = input('Please enter the new item: ')
         update_single_item(current_index, updated_item)
         print(f'The updated todo list is as: {todo_list}')
