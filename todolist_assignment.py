@@ -15,11 +15,7 @@ def populate_list():
     total_items = int(input('Please enter how many items you want to list?\n'))
     print('Please enter the items')
     for i in range(0, total_items):
-        items = input()
-        list_items = {
-            'item name': items,
-            'status': 'incomplete'
-        }
+        list_items = input()
         todo_list.append(list_items)
     return todo_list
 
